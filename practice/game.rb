@@ -8,4 +8,9 @@ class Game
         @guessed_letters = []
     end
 
+    def make_guess(letter)
+        @guessed_letters << letter
+        @player.lives -= 1 if !@word.contains?(letter)
+    end
+
 end

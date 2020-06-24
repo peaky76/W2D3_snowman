@@ -29,4 +29,18 @@ class TestGame < MiniTest::Test
         assert_equal(0, @game.guessed_letters.length)
     end
 
+    def test_guess_correct()
+        @game.make_guess("r")
+        assert_equal(1, @game.guessed_letters.length)
+        assert_equal("R*** ** R****", @game.word.display(@game.guessed_letters))
+        assert_equal(6, @game.player.lives)
+    end
+
+    def test_guess_wrong()
+        @game.make_guess("z")
+        assert_equal(1, @game.guessed_letters.length)
+        assert_equal("**** ** *****", @game.word.display(@game.guessed_letters))
+        assert_equal(5, @game.player.lives)
+    end
+
 end
