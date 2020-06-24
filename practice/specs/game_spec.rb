@@ -44,8 +44,19 @@ class TestGame < MiniTest::Test
     end
 
     def test_game_is_lost()
-        6.times {@player.lose_life}
+        # 6 wrong and 2 right guesses
+        for letter in ["x", "p", "z", "q", "r", "b", "t", "c"]
+            @game.make_guess(letter)
+        end
         assert(@game.is_lost?)
+    end
+
+    def test_game_is_won()
+        # 3 wrong and 10 right guesses
+        for letter in ["z", "c", "p", "r", "u", "b", "y", "o", "n", "a", "i", "l", "s"]
+            @game.make_guess(letter)
+        end
+        assert(@game.is_won?)
     end
 
 end

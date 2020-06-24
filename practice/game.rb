@@ -17,4 +17,8 @@ class Game
         return @player.lives == 0
     end
 
+    def is_won?()
+        return !@word.display(@guessed_letters).include?("*")
+    end
+
 end
