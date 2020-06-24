@@ -16,5 +16,8 @@ class HiddenWord
         return word_to_display
     end
 
+    def contains?(letter)
+        return @word.downcase.include?(letter.downcase)
+    end
 
 end

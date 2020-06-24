@@ -14,14 +14,23 @@ class TestHiddenWord < MiniTest::Test
     def setup()
         @single_word = HiddenWord.new("javascript")
         @multiple_words = HiddenWord.new("Ruby on Rails")
+        @no_guesses_made = []
     end
 
     def test_initial_word_display()
-        assert_equal("**********", @single_word.display())
+        assert_equal("**********", @single_word.display(@no_guesses_made))
     end
 
     def test_initial_word_display_with_spaces()
-        assert_equal("**** ** *****", @multiple_words.display())
+        assert_equal("**** ** *****", @multiple_words.display(@no_guesses_made))
+    end
+
+    def test_word_contains_letter_true()
+        assert(@multiple_words.contains?("r"))
+    end
+
+    def test_word_contains_letter_false()
+        assert(!@multiple_words.contains?("z"))
     end
 
 end
