@@ -13,4 +13,8 @@ class Game
         @player.lose_life if !@word.contains?(letter)
     end
 
+    def is_lost?()
+        return @player.lives == 0
+    end
+
 end

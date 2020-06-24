@@ -43,4 +43,9 @@ class TestGame < MiniTest::Test
         assert_equal(5, @game.player.lives)
     end
 
+    def test_game_is_lost()
+        6.times {@player.lose_life}
+        assert(@game.is_lost?)
+    end
+
 end
