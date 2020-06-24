@@ -17,11 +17,11 @@ class TestHiddenWord < MiniTest::Test
     end
 
     def test_initial_word_display()
-        assert_equal("**********", @single_word.display_word())
+        assert_equal("**********", @single_word.display())
     end
 
     def test_initial_word_display_with_spaces()
-        assert_equal("**** ** *****", @multiple_words.display_word())
+        assert_equal("**** ** *****", @multiple_words.display())
     end
 
 end
