@@ -7,7 +7,7 @@ class HiddenWord
     def display(guessed_letters)
         word_to_display = ""
         for letter in @word.each_char
-            if guessed_letters.include?(letter) || letter == " "
+            if guessed_letters.include?(letter.downcase) || letter == " "
                 word_to_display += letter
             else
                 word_to_display += "*"

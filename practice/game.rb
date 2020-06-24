@@ -10,7 +10,7 @@ class Game
 
     def make_guess(letter)
         @guessed_letters << letter
-        @player.lives -= 1 if !@word.contains?(letter)
+        @player.lose_life if !@word.contains?(letter)
     end
 
 end

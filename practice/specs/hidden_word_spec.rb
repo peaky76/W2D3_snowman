@@ -33,4 +33,9 @@ class TestHiddenWord < MiniTest::Test
         assert(!@multiple_words.contains?("z"))
     end
 
+    def test_word_display_after_several_guesses()
+        result = @multiple_words.display(["r", "b", "n", "z"])
+        assert_equal("R*b* *n R****", result)
+    end
+
 end
