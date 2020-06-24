@@ -12,11 +12,16 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new()
 class TestHiddenWord < MiniTest::Test
 
     def setup()
-        @word_to_guess = HiddenWord.new("javascript")
+        @single_word = HiddenWord.new("javascript")
+        @multiple_words = HiddenWord.new("Ruby on Rails")
     end
 
     def test_initial_word_display()
-        assert_equal("**********", @word_to_guess.display_word())
+        assert_equal("**********", @single_word.display_word())
+    end
+
+    def test_initial_word_display_with_spaces()
+        assert_equal("**** ** *****", @multiple_words.display_word())
     end
 
 end
